@@ -1,0 +1,26 @@
+.header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+    color: #000000;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+.title-header
+{
+    font-weight: bold;
+}
+.png-header
+{
+    width: 50px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.isotopo
+{
+    width: 70px;
+}

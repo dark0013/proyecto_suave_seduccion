@@ -1,0 +1,59 @@
+.down
+{
+    margin-left: 10px;
+}
+.filter-nav
+{
+	background: #FFF;
+	z-index: 999;
+	width: 100%;
+	transition: all 0.5s;
+    grid-column: 1 / span 3;
+    grid-row-start: 2;
+}
+.filter-nav ul
+{
+	list-style: none;
+    text-align: left;
+	padding: 0;
+}
+.filter-nav ul li
+{
+	display: inline-block;
+	position: relative;
+}
+.filter-nav ul li:hover
+{
+	background: #EEE;
+}
+.filter-nav ul li a
+{
+	display: block;
+	text-decoration: none;
+	color:#000;
+	font-size: 12px;
+	padding: 10px;
+    width: 80px;
+	margin: 0;
+}
+.filter-nav ul li:hover .children
+{
+	display: block;
+}
+.filter-nav ul li .children
+{
+	display: none;
+	background: #EEE;
+	position: absolute;
+	z-index: 999;
+}
+.filter-nav ul li .children li
+{
+	display:block;
+	overflow: hidden;
+}
+.filter-nav ul li .children li a {
+	display: block;
+	font-size: 12px;
+	margin: 0;
+}
