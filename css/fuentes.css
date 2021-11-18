@@ -1,0 +1,40 @@
+@font-face {
+  font-family:'BreadleySerif-Bold' ;
+  src: url(../assets/fonts/BreadleySerif-Bold.ttf);
+}
+
+@font-face {
+  font-family:'BreadleySerif-Black' ;
+  src: url(../assets/fonts/BreadleySerif-Black.ttf);
+}
+
+@font-face {
+  font-family:'BreadleySerif-Light' ;
+  src: url(../assets/fonts/BreadleySerif-Light.ttf);
+}
+
+@font-face {
+  font-family:'BreadleySerif-Regular' ;
+  src: url(../assets/fonts/BreadleySerif-Regular.ttf);
+}
+
+@font-face {
+  font-family:'Gayaku' ;
+  src: url(../assets/fonts/Gayaku.ttf);
+}
+
+.BreadleySerif-Bold{
+  font-family: 'BreadleySerif-Bold';
+}
+.BreadleySerif-Black{
+  font-family: 'BreadleySerif-Black';
+}
+.BreadleySerif-Light{
+  font-family: 'BreadleySerif-Light';
+}
+.BreadleySerif-Regular{
+  font-family: 'BreadleySerif-Regular';
+}
+.Gayaku{
+  font-family: 'Gayaku';
+}

@@ -1,0 +1,207 @@
+/* :root{
+  --rojo: #B7202E;
+  --negro: #1D1D1B;
+  --gris: #E3E3E3;
+  --gris-oscuro:#797979;
+} */
+
+/* .bg-gris{
+  background-color: var(--gris);
+}
+
+.bar-nav{
+  background-color: var(--rojo);
+}
+
+.logo-head{
+  height: 4.5vw;
+}
+
+.icons-head{
+  height: 2.5vw;
+}
+
+
+.text-nav{
+  font-size: calc(1em + 1vw);
+}
+
+.nav-opt>.text-nav:hover{
+  color: var(--gris);
+  border-bottom: 2px solid var(--gris);
+  margin-bottom: -2px;
+}
+
+
+.btn-collapse{
+  padding: 0;
+  font-size: inherit;
+  color: var(--gris);
+  border-color: var(--gris);
+}
+
+.btn-collapse:focus{
+  border: 2px;
+}
+
+
+.title-head {
+  font-size: calc(3em + .5vw);
+} */
+
+.frase-blog{
+  font-size: calc(3.4em + 1vw);
+}
+
+.breadcrumb-blog {
+  font-size: calc(.7em + .7vw);
+  color:var(--gris-oscuro);
+  position: relative;
+  top:-.8em;
+}
+
+.frase-moda{
+  font-size: calc(1.4em + .9vw);
+  letter-spacing: .3em;
+  color:var(--gris)
+}
+
+.frase-noticia-post {
+  font-size: calc(1.3em + 1vw);
+  letter-spacing: .2em;
+  color:var(--gris);
+}
+
+.tittle-post{
+  font-weight: 700;
+  font-size: calc(0.9em + 0.9vw);
+}
+
+.date-post{
+  font-weight: 300;
+  font-size: calc(.5em + .5vw);
+}
+
+.icon-share-blog{
+  position:relative; left:1.9em;
+}
+
+.icon-share{
+  position:relative; left:4.4em;
+}
+
+
+.p-post{
+  font-size: calc(.6em + .6vw);
+  text-align: justify;
+  color:var(--gris-oscuro)
+}
+
+.frase-noticia{
+  font-size: calc(0.6em + 0.6vw);
+  letter-spacing: .3em;
+  color:var(--gris);
+  text-decoration: none;
+}
+
+.frase-noticia:hover{
+  color:var(--rojo);
+}
+
+.divisor-blog{
+  color: var(--negro);
+  opacity: .75;
+}
+
+
+
+@media screen and  (max-width: 575px) {
+
+  /* .logo-head{
+    height: 7vw;
+  }
+  
+  .icons-head{
+    height: 4vw;
+  }
+
+  .text-nav{
+    font-size: calc(.8em + 1vw);
+  } */
+
+  .frase-blog{
+    font-size: calc(1.6em + 1vw);
+  }
+
+  .frase-moda{
+    font-size: calc(1.2em + 1vw);
+  }
+
+  .frase-noticia-post {
+    font-size: calc(1em + 1vw);
+  }
+
+  .icon-share, .icon-share-blog{
+  position:relative; left:1.6em;
+  }
+  
+}
+
+/* @media screen and (max-width: 459px) {
+  .title-head{
+    font-size: calc(.8em + 1vw);
+  }
+ 
+} */
+
+@media screen and (min-width: 575px) and (max-width: 992px) {
+
+  /* .logo-head{
+    height: 5.5vw;
+  }
+  
+  .icons-head{
+    height: 3vw;
+  }
+
+  .text-nav{
+    font-size: calc(.9em + 1vw);
+  }  */
+
+  .frase-blog{
+    font-size: calc(2.4em + 1vw);
+  }
+
+  .frase-moda{
+    font-size: calc(1.4em + .8vw);
+  }
+
+  .frase-noticia-post {
+    font-size: calc(1.1em + .8vw);
+  }
+
+  .icon-share{
+    position:relative; left:2.2em;
+  }
+
+  .icon-share-blog{
+    position:relative; left: 1.1em;
+  }
+}
+
+/* @media screen and (max-width: 765px) {
+  .nav-opt {
+    width: 100%;
+  }
+
+  .nav-opt>a{
+    display: block;
+  }
+
+  .nav-opt:hover {
+    border-bottom: 2px solid var(--gris);
+  }
+ 
+} */
+
+
