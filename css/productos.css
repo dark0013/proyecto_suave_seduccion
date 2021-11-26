@@ -1,0 +1,171 @@
+@font-face {
+    font-family: Gayaku;
+    src: url(../resource/font/Gayaku.ttf);
+}
+.breadcrumb {
+    align-items: flex;
+    margin-top: 20px;
+    
+  }
+
+  .breadcrumb-item{
+    text-decoration-color: rgb(19, 18, 18);
+  }
+  .containerroxa{
+    width: 1500px;
+    height: 1050px;
+  }
+  .FiltroNav{
+      top: 25px;
+      left: 10%;
+
+  }
+  
+  .row-imagen{
+     position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      height:580px;
+      width: 100%;
+      margin: 0;
+      margin-left: 120px;  
+      
+      
+  }
+  
+  .col-t-md-4 {
+    flex: 0 0 auto;
+
+    top:30px;
+    height: 580px; width: 290px;
+    margin-right: 50px;
+    
+  
+  }
+.col-t-md-4 h2{
+    margin-left:8px;
+    margin-top: 8px;
+    font-size: 26px;
+    justify-content: center;
+}
+.col-t-md-4 p{
+    margin-left:8px;
+
+}
+.starContainer{
+    margin-left:8px;
+}
+.starContainer img{
+    display: inline-block;
+    height: 22px;
+    margin-top: -20px;
+    margin-bottom:10px;
+}
+.col-t-md-4 li{
+    margin-top: -22px;
+}
+  
+
+  .prod{
+    width: 100%;
+    height: 380px;
+    opacity: .8;
+    filter: alpha(opacity=80);
+    margin-left: 10px;
+    top: 0px;
+
+  }
+  .fav{
+      position: absolute;
+      
+  }
+  .box-t.fav  img{
+     height: 10px;
+  }
+
+
+
+
+  
+  
+  *,
+  body,
+  html {
+    padding: 0;
+    position: relative;
+    font-family: Gayaku;
+    color: black;
+    font-size:initial;
+  }
+
+
+  
+  .custom-select {
+    width: 90px;
+    position: relative;
+    font-family: Arial;
+    display: inline-block;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element:*/
+  }
+  
+
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: black  transparent transparent;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent black transparent;
+    top: 4px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items {
+    border: 2px solid transparent;
+    border-color: black;
+    background-color: white;
+    cursor: pointer;
+    width: 130px;
+    user-select: none;
+  }
+  .select-items div,.select-selected {
+    border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .selectText{
+      padding-left: 15px;
+      padding-top: 5px;
+  }
+

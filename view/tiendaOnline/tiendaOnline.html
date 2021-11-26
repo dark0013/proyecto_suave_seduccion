@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="../../css/productos.css"> 
+</head>
+
+<body>
+
+  <!-- barra de inicio --------------------------------------------------------------------------->
+
+  <nav aria-label="breadcrumb" style="top:25px; margin-left: 100px;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Inicio</li>
+      <li class="breadcrumb-item">Brasieres</li>
+      <li class="breadcrumb-item active" aria-current="page">Bralette
+      </li>
+    </ol>
+  </nav>
+  <div class = "FiltroNav">
+    Filtros &emsp; |
+      <div class="custom-select" >
+        <select>
+          <option value="0">Talla</option>
+          <option value="1">Talla 1</option>
+          <option value="2">Talla 2</option>
+          <option value="3">Talla 3</option>
+        </select>
+      </div>|
+      <div class="custom-select">
+        <select>
+          <option value="0">Color</option>
+          <option value="1">Rojo</option>
+          <option value="2">Negro</option>
+          <option value="3">Blanco</option>
+          
+        </select>
+      </div>|
+    <div class="custom-select" >
+      <select>
+        <option value="0">Estilo</option>
+        <option value="1">Estilo 1</option>
+        <option value="2">Estilo 2</option>
+        <option value="3">Estilo 3</option>
+      </select>
+    </div>|
+
+    <div class="custom-select">
+      <select>
+        <option value="0">Precio</option>
+        <option value="1">0-10</option>
+        <option value="2">10-20</option>
+        <option value="3">20+</option>
+      </select>
+    </div>|
+  </div>
+  <!-- servicios -->
+
+  <div class="containerroxa my-4">
+    <div class="row-imagen">
+      <div class="col-t-md-4">
+          <div class="box-t" >
+          <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+          <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+          </div>
+          <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+          <p>Nombre del Producto</p>
+          <div class = "starContainer">
+            <img src="../../resource/icons/starsUnchecked.png">
+            <img src="../../resource/icons/starsUnchecked.png">
+            <img src="../../resource/icons/starsUnchecked.png">
+            <img src="../../resource/icons/starsUnchecked.png">
+            <img src="../../resource/icons/starsUnchecked.png">
+          </div>
+          <p>Detalles</p>
+          <ul>
+            <li>Mas Colores</li>
+          </ul>
+      </div>
+      <div class="col-t-md-4">
+        <div class="box-t" >
+        <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+        <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+        </div>
+        <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+        <p>Nombre del Producto</p>
+        <div class = "starContainer">
+          <img src="../../resource/icons/starsUnchecked.png">
+          <img src="../../resource/icons/starsUnchecked.png">
+          <img src="../../resource/icons/starsUnchecked.png">
+          <img src="../../resource/icons/starsUnchecked.png">
+          <img src="../../resource/icons/starsUnchecked.png">
+        </div>
+        <p>Detalles</p>
+        <ul>
+          <li>Mas Colores</li>
+        </ul>
+    </div>
+    <div class="col-t-md-4">
+      <div class="box-t" >
+      <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+      <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+      </div>
+      <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+      <p>Nombre del Producto</p>
+      <div class = "starContainer">
+        <img src="../../resource/icons/starsUnchecked.png">
+        <img src="../../resource/icons/starsUnchecked.png">
+        <img src="../../resource/icons/starsUnchecked.png">
+        <img src="../../resource/icons/starsUnchecked.png">
+        <img src="../../resource/icons/starsUnchecked.png">
+      </div>
+      <p>Detalles</p>
+      <ul>
+        <li>Mas Colores</li>
+      </ul>
+  </div>
+  <div class="col-t-md-4">
+    <div class="box-t" >
+    <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+    <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+    </div>
+    <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+    <p>Nombre del Producto</p>
+    <div class = "starContainer">
+      <img src="../../resource/icons/starsUnchecked.png">
+      <img src="../../resource/icons/starsUnchecked.png">
+      <img src="../../resource/icons/starsUnchecked.png">
+      <img src="../../resource/icons/starsUnchecked.png">
+      <img src="../../resource/icons/starsUnchecked.png">
+    </div>
+    <p>Detalles</p>
+    <ul>
+      <li>Mas Colores</li>
+    </ul>
+</div>
+<div class="col-t-md-4">
+  <div class="box-t" >
+  <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+  <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+  </div>
+  <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+  <p>Nombre del Producto</p>
+  <div class = "starContainer">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+  </div>
+  <p>Detalles</p>
+  <ul>
+    <li>Mas Colores</li>
+  </ul>
+</div>
+<div class="col-t-md-4">
+  <div class="box-t" >
+  <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+  <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+  </div>
+  <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+  <p>Nombre del Producto</p>
+  <div class = "starContainer">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+  </div>
+  <p>Detalles</p>
+  <ul>
+    <li>Mas Colores</li>
+  </ul>
+</div>
+<div class="col-t-md-4">
+  <div class="box-t" >
+  <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+  <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+  </div>
+  <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+  <p>Nombre del Producto</p>
+  <div class = "starContainer">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+  </div>
+  <p>Detalles</p>
+  <ul>
+    <li>Mas Colores</li>
+  </ul>
+</div>
+<div class="col-t-md-4">
+  <div class="box-t" >
+  <img class ="prod" src="../../resource/Test.png" loading="lazy" style=background-color:#c9c8c8>
+  <img class = "fav unchecked" id= "fav" onclick= favoriteProduct(this) src="../../resource/icons/favUnchecked.png" style="height: 50px;width: 50px; left: 80%; top: 2%;">
+  </div>
+  <h2 class="DroidSerif-Bold" style="">USD XX.xx</h2>
+  <p>Nombre del Producto</p>
+  <div class = "starContainer">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+    <img src="../../resource/icons/starsUnchecked.png">
+  </div>
+  <p>Detalles</p>
+  <ul>
+    <li>Mas Colores</li>
+  </ul>
+</div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="../../js/productos.js">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
