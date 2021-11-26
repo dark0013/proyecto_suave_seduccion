@@ -1,0 +1,54 @@
+@font-face {
+    font-family:gayaku ;
+    src: url(../resource/Gayaku.ttf) format("truetype");
+}
+@font-face {
+    font-family: breadley;
+    src: url(../resource/BreadleySerif-Regular.ttf) format("truetype");
+}
+
+
+h2 {
+    
+    margin-top: 30px;
+    text-align: center;
+    font-family: breadley;
+    font-size: 70px;  
+}
+h2.title{
+    color:#9d1e27;
+    font-family: gayaku;
+    font-weight: bolder;
+    position: center;
+    font-size: 30px;
+}
+.p_nos{
+    color:rgba(75, 73, 73, 0.849);
+    font-family: gayaku;
+  font-weight: bold ;
+  text-align: center;
+
+}
+h2.linea{
+    position: relative;
+    z-index: 1;
+    
+}
+h2.linea::before{
+    border-top: 1px solid rgb(0, 0, 0);
+    content: "";
+    margin: 0 auto;
+    position: absolute;
+    top: 60%;
+    left:0;
+    right:0;
+    bottom:0;
+    width:95%;
+    z-index:-1;
+}
+h2.linea span{
+    background: #fff;
+    padding: 0 40px;
+    
+    
+}
