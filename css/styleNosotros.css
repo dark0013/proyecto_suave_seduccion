@@ -1,10 +1,10 @@
 @font-face {
     font-family:gayaku ;
-    src: url(../resource/Gayaku.ttf) format("truetype");
+    src: url(../resource/font/Gayaku.ttf) format("truetype");
 }
 @font-face {
     font-family: breadley;
-    src: url(../resource/BreadleySerif-Regular.ttf) format("truetype");
+    src: url(../resource/font/BreadleySerif-Regular.ttf) format("truetype");
 }
 
 
