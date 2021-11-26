@@ -1,0 +1,147 @@
+@font-face
+{
+    font-family: 'BreadleySerif Bold';
+    src: url('../resource/font/BreadleySerif-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.menu_bar {
+	color: #FFF;
+	display: none;
+    width: 100%;
+}
+.main-nav {
+	background: #BB0B0B;
+	z-index:1000;
+	width: 100%;
+	/*transition: all 0.3s;*/
+}
+.main-nav ul
+{
+	list-style: none;
+    text-align: center;
+	padding: 0;
+}
+
+.main-nav ul li
+{
+	display: inline-block;
+	position: relative;
+	/*transform: all 0.8s;*/
+}
+
+.main-nav ul li:hover
+{
+	background: #A20202;
+}
+
+.main-nav ul li a
+{
+	display: block;
+	font-family: 'BreadleySerif Bold';
+	text-decoration: none;
+	color:#FFF;
+	font-size: 30px;
+	padding: 10px;
+    width: 200px;
+	margin: 0;
+}
+
+.main-nav ul li:hover .children
+{
+	display: block;
+}
+
+.main-nav ul li .children
+{
+	display: none;
+	background: #BE2929;
+	position: absolute;
+	z-index:1000;
+	transition: all 0.3s;
+}
+
+.main-nav ul li .children li
+{
+	display:block;
+	overflow: hidden;
+}
+
+.main-nav ul li .children li a {
+	display: block;
+	font-family: 'BreadleySerif Bold';
+	font-size: 30px;
+	margin: 0;
+}
+
+@media screen and (max-width: 1220px) {
+	.menu_bar
+	{
+		display: block;
+		width: 100%;
+		position: absolute;
+		/*top:0;*/
+		background: #800000;
+	}
+	.menu-btn
+	{
+		margin-right: 10px;
+	}
+	.menu_bar .bt-menu
+	{
+		display: block;
+		padding: 10px;
+		color: #fff;
+		overflow: hidden;
+		font-size: 15px;
+		font-family: 'BreadleySerif Bold';
+		font-weight: bold;
+		text-decoration: none;
+	}
+	.main-nav
+	{
+		width: 80%;
+		height: calc(100% - 80px);
+		position: absolute;
+		right:100%;
+		margin-top: 42px;
+		overflow: scroll;
+	}
+    .main-nav ul li a
+    {
+        font-size: 15px;
+    }
+    .main-nav ul li .children li a {
+        font-size: 15px;
+    }
+    .main-nav ul
+	{
+        text-align: left;
+    }
+
+	.main-nav ul li
+	{
+		display: block;
+	}
+
+	.main-nav ul li a
+	{
+		display: block;
+        padding: 10px;
+	}
+
+	.main-nav ul li:hover .children
+	{
+		display: none;
+	}
+
+	.main-nav ul li .children
+	{
+		width: 100%;
+		position: relative;
+	}
+	.main-nav ul li .children li a {
+		margin-left:50px;
+	}
+}
