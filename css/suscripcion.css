@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../resource/images/fondo.jpg');
+}
+
+.form-register {
+  width: 900px;
+  height: 540px;
+  background: #FEFEFE;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 0px;
+  font-family: 'calibri';
+  color: white;
+}
+
+.anuncio{
+	width: 800px;
+	height:250px;
+	background-color: #CFCFCF; 
+	margin: auto;
+	margin-bottom: 30px;
+	font-size: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.primary{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.second{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'BreadleySerif-Bold';
+	font-size: 20px;
+
+}
+
+.col-sm-8{
+	justify-content: center;
+	align-items: center;
+}
+.row{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.row2{
+	display:flex;
+	justify-content: center;
+	padding-bottom: 15px;
+}
+
+.login{
+	margin-bottom: 0px;
+
+}
+
+.form-register h4 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: black;
+  font-family: 'BreadleySerif-Bold';
+
+}
+
+.controls {
+  width: 100%;
+  background: #CFCFCF;
+  padding: 10px;
+  border-radius: 0px;
+  border: 1px solid #CFCFCF;
+  font-family: 'Gayaku';
+  font-size: 18px;
+  color: white;
+  display: grid;
+}
+
+.form-register a {
+  color: #C31017;
+  text-decoration: none;
+}
+
+.form-register .botons {
+  width: 60%;
+  background: #C31017;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 20px;
+  border-radius: 10px;
+  font-family: 'Gayaku';
+}
+
+@font-face {
+    font-family: 'Gayaku';
+    src: url('../resource/font/Gayaku.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+@font-face {
+    font-family: 'BreadleySerif-Bold';
+    src: url('../resource/font/BreadleySerif-Bold.otf') format('truetype');
+    font-style: bold;
+    font-weight: normal;
+  }
