@@ -75,21 +75,21 @@
 
 @font-face {
     font-family: 'Eras Bold';
-    src: url('../fonts/Eras BD.TTF') format('truetype');
+    src: url('../resource/font/Eras BD.TTF') format('truetype');
     font-style: normal;
     font-weight: normal;
   }
 
   @font-face {
     font-family: 'BreadleySerif Bold';
-    src: url('../fonts/BreadleySerif-Bold.ttf') format('truetype');
+    src: url('../resource/font/BreadleySerif-Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
   }
 
   @font-face {
     font-family: 'Gayaku';
-    src: url('../fonts/Gayaku.ttf') format('truetype');
+    src: url('../resource/font/Gayaku.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
   }
