@@ -1,0 +1,114 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+
+.logo1{
+	height: 70px;
+	width: 200px;
+	/*filter: grayscale(100%);*/
+}
+.logo-redsocial{
+	height: 25px;
+	width: 25px;
+}
+.logo-tarjetas{
+	height: 40px;
+	width: 40px;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.colimgredes{
+	display: inline-block;
+	padding: 20px;
+	align-items: center;
+
+}
+.formcontrol{
+	height:28px; 
+	width:140px;
+}
+.btn{
+	background-color: #0a0a0a;
+	color:white;
+	width:45px;
+    height:28px;
+}
+.colimg{
+	display: inline-block;
+	padding: 5px;
+	filter: grayscale(100%);
+}
+.col1{
+	display: inline-block;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #C31017;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 20%;
+   padding: 0 15px;
+   font-family: 'Gayaku';
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #ffffff;
+	display: block;
+	transition: all 0.3s ease;
+}
+.redes-sociales{
+	display: inline-block;
+}
+
+
+
+@font-face {
+    font-family: 'Gayaku';
+    src: url('../resource/font/Gayaku.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+
+
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
