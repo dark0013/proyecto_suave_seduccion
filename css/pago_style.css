@@ -151,7 +151,16 @@ body{
   color: var(--gris);
   width: 50%;
   border-radius: 1rem;
-  
+  font-size: calc(0.9em + 0.8vw);
+}
+
+.btn-siguiente:hover {
+  color: var(--gris);
+  box-shadow: 0 0 0 0.25rem #d74a57b0;
+}
+
+.btn-siguiente:focus {
+  box-shadow: 0 0 0 0.25rem #d74a57b0;
 }
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
@@ -165,6 +174,7 @@ body{
 
   .btn-siguiente{
     width: 25%;
+    font-size: calc(0.8em + 0.8vw);
   }
 
 }
@@ -190,6 +200,10 @@ body{
 
   .progressbar__option{
     font-size: calc(.5em + .5vw);
+  }
+
+  .btn-siguiente{
+    font-size: calc(0.7em + 0.7vw);
   }
 }
 
@@ -241,26 +255,37 @@ body{
 
 /* ---------------------- Paso3 ---------------------- */
 
+/* Sirve para quitar el incremento en input tipo number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
 .logo-pago{
   width: 65%;
   height: auto;
 }
 
 .cuadro-carrito-paso3{
-    height: 100%;
-    width: 75%;
+  height: 100%;
+  width: 75%;
 }
 
-@media screen and (min-width: 576px) and (max-width: 767px) {
-
-  .btn-siguiente{
-    width: 40%;
-  }
-
+.btn-pagar{
+  width: 60%;
+  font-size: calc(1.3em + 1.3vw);
 }
+
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
   .cuadro-carrito-paso3{
+    width: 50%;
+  }
+
+  .btn-pagar{
     width: 50%;
   }
 
@@ -270,8 +295,55 @@ body{
   
   .cuadro-carrito-paso3{
     width: 80%;
+    /* height: 75%; */
   }
 
 }
 
+/* -------------------------- Agradecimiento ----------------------------- */
 
+.text-gracias{
+  font-size: calc(1.4em + 1.4vw);
+}
+
+.text-parrafo{
+  font-size: calc(1em + 1vw);
+}
+
+.text-enlaces{
+  text-decoration: none;
+  color: var(--negro);
+  font-size: calc(1.2em + 1.2vw);
+}
+
+.text-inicio{
+  text-decoration-color: var(--negro);
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+}
+
+a.text-enlaces:hover {
+  color: var(--gris);
+}
+
+a.text-enlaces:hover>.text-inicio{
+  text-decoration-color: var(--gris);
+}
+
+@media screen and (min-width: 768px) {
+  
+  .text-gracias{
+    font-size: calc(2.7em + 2.7vw);
+  }
+  
+  .text-parrafo{
+    font-size: calc(1.2em + 1.2vw);
+  }
+  
+  .text-enlaces{
+    text-decoration: none;
+    color: var(--negro);
+    font-size: calc(1.5em + 1.5vw);
+  }
+
+}

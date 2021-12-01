@@ -17,8 +17,8 @@
       <div class="container-fluid pb-3">
         <div class="row justify-content-between">
           <!-- Seccion con barra de progreso y formularios de datos -->
-          <div class="col-12 col-lg-8">
-            
+          <div class="col-12 col-lg-9">
+            <!-- Barra de progreso -->
             <div class="row">
               <ul class="progressbar d-flex">
                 <li class="progressbar__option">
@@ -39,44 +39,46 @@
               </ul>
             </div>
 
-            <div class="row px-1 px-sm-0 ps-sm-4 justify-content-center">
+            <!-- Formas de pago tarjeta, transferencia y link de pago -->
+            <div class="row px-1 px-sm-0 ps-sm-4 justify-content-center pt-3">
+              <!-- Seccion de tarjetas -->
               <div class="row pb-3">
                 <div class="col-12 col-lg-3 pb-1 d-flex justify-content-center align-items-center BreadleySerif-Bold nombre-forma-pago">
                   <span class="text-center">Tarjeta de Crédito</span>
                 </div>
-
+                <!-- Opciones -->
                 <div class="col-12 col-lg-9">
                   <div class="row">
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="mastercard" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="mastercard" class="forma-pago tarjeta" value="mastercard"/>
                       <label for="mastercard" class="px-1 h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/mastercard.png" alt="Mastercard" class="img-fluid" />
                       </label>
                     </div>
 
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="american_express" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="american_express" class="forma-pago tarjeta" value="american-express"/>
                       <label for="american_express" class="h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/american-express.png" alt="American Express" class="img-fluid" />
                       </label>
                     </div>
 
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="diners_club" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="diners_club" class="forma-pago tarjeta" value="diners-club-International" />
                       <label for="diners_club" class="h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/diners-club-International.png" alt="Diners Club Internation" class="img-fluid" />
                       </label>
                     </div>
 
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="visa" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="visa" class="forma-pago tarjeta" value="visa"/>
                       <label for="visa" class="h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/visa.png" alt="Visa" class="img-fluid" />
                       </label>
                     </div>
 
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="discover" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="discover" class="forma-pago tarjeta" value="discover"/>
                       <label for="discover" class="h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/discover.png" alt="Discover" class="img-fluid" />
                       </label>
@@ -86,29 +88,31 @@
                 </div>
               </div>
 
+              <!-- Seccion de transferencias -->
               <div class="row pb-3">
                 <div class="col-12 col-lg-3 pb-1 d-flex justify-content-center align-items-center BreadleySerif-Bold nombre-forma-pago">
                   <span class="text-center">Transferencia bancaria</span>
                 </div>
                 
+                <!-- Opciones -->
                 <div class="col-12 col-lg-9">
                   <div class="row">
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="banco-del-pacifico" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="banco-del-pacifico" class="forma-pago transferencia" value="banco-del-pacifico" />
                       <label for="banco-del-pacifico" class="px-1 h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/banco-del-pacifico.png" alt="Banco del Pacifico" class="img-fluid" />
                       </label>
                     </div>
 
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="produbanco" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="produbanco" class="forma-pago transferencia" value="produbanco" />
                       <label for="produbanco" class="h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/produbanco.png" alt="Produbanco" class="img-fluid" />
                       </label>
                     </div>
 
                     <div class="col">
-                      <input type="radio" name="forma-pago" id="banco-guayaquil" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="banco-guayaquil" class="forma-pago transferencia" value="banco-guayaquil" />
                       <label for="banco-guayaquil" class="h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/banco-guayaquil.png" alt="Banco Guayaquil" class="img-fluid" />
                       </label>
@@ -117,15 +121,17 @@
                 </div>
               </div>
 
+              <!-- Seccion de link de pago -->
               <div class="row pb-3">
                 <div class="col-12 col-lg-3 pb-1 d-flex justify-content-center align-items-center BreadleySerif-Bold nombre-forma-pago">
                   Link de pago
                 </div>
-                
+
+                <!-- Opciones -->
                 <div class="col-12 col-lg-9">
                   <div class="row row justify-content-center justify-content-lg-start">
                     <div class="col-4">
-                      <input type="radio" name="forma-pago" id="datalink" class="forma-pago" />
+                      <input type="radio" name="forma-pago" id="datalink" class="forma-pago link" value="datalink" />
                       <label for="datalink" class="px-2 py-2 h-100 d-flex align-items-center">
                         <img src="../../resource/img-forma-pago/datalink.png" alt="DataLink" class="img-fluid" />
                       </label>
@@ -177,7 +183,7 @@
             <!-- Boton de Siguente -->
             <div class="row">
               <a href="./forma_pago3.html" class="d-flex justify-content-center a-btn">
-                <button class="btn btn-primary btn-siguiente">Siguiente</button>
+                <button class="btn btn-siguiente">Siguiente</button>
               </a>
             </div>
 
