@@ -52,9 +52,9 @@ class api {
             echo "No se pudo modificar tu registro";
         }
     }
-    function createBlog($tittle,$body){
+    function createBlog($id_principal,$tittle,$body){
         $blog = new body_blog();
-        $resultado = $blog->crearBlog($tittle,$body);
+        $resultado = $blog->crearBlog($id_principal,$tittle,$body);
         if( $resultado->rowCount() > 0){
             echo "Agregada con exito";
         }else{

@@ -32,7 +32,11 @@ function editarPrincipalBlog($id_principal_blog,$tittle,$body){
     }elseif($tittle && $body){
         $query = $this->connect()->query('UPDATE principal_blog SET title ="'.$tittle .'",body ="'.$body.'" WHERE id_principal_blog='.$id_principal_blog);
     }
-   
+    return $query;
+} 
+function editarPrincipalBlogImage($id_image_bloc,$id_principal_blog){
+    $query = $this->connect()->query('UPDATE principal_blog SET id_image ="'.$id_image_bloc .'" WHERE id_principal_blog='.$id_principal_blog);
+    return $query;
 }
 }
 ?>

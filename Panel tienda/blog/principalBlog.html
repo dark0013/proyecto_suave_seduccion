@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+  <title>Principal Blog</title>
+</head>
+
+<body>
+  <h1 class="text-center"> PrincipalBlog </h1>
+  <div id="app">
+    <div class="container">
+      <!-- Button trigger modal -->
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <!-- <div class="p-2 bd-highlight">Flex item 3</div> -->
+        <button class="btn btn-success" type="button" data-bs-toggle="modal"
+          data-bs-target="#PrincipalModalA">Agregar</button>
+        <div class="modal " tabindex="-1" id="PrincipalModalA">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Agregar principal del blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Titulo</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="subtitulo" placeholder="Titulo" v-model="titulo">
+                    </div>
+                  </div>
+                  <div class=" mt-1 form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Contenido </label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Contenido" rows="3"
+                          v-model="contenido"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" type="submit" v-on:click="postPrincipal()"
+                  data-bs-dismiss="modal">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col-1">#</th>
+            <th scope="col-3">Titulo</th>
+            <th scope="col-4">Contenido</th>
+            <th scope="col-4">Info Image</th>
+            <th scope="col-2">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="col mb-4" v-for="dato in data">
+            <th scope="row">{{dato.id_principal_blog}}</th>
+            <td class="col-4">{{dato.title}}</td>
+            <td class="col-4">{{dato.body}}</td>
+            <td>
+              <button class="btn btn-secondary" type="button" data-bs-toggle="modal" v-bind:data-bs-target="tranformar1('EditarImg',dato.id_principal_blog)"
+                v-on:click="getImageId(dato.id_image)">Info image</button>
+              <div class="modal " tabindex="-1" v-bind:id="tranformar2('EditarImg',dato.id_principal_blog)">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Imagen del blog</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 col-form-label">Url :</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="url" v-model="url" placeholder="Url">
+                          </div>
+                        </div>
+                        <div class=" mt-1 form-group row">
+                          <div class="col-6">
+                            <label class="col-sm-2 col-form-label">Width :</label>
+                            <input v-model="width" type="text" class="form-control" id="Width" placeholder="Width">
+                          </div>
+                          <div class="col-6">
+                            <label class="col-sm-2 col-form-label">Height :</label>
+                            <input type="text" v-model="height" class="form-control" id="Height" placeholder="Height">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        v-on:click="deleteImage(dato.id_image)">Eliminar</button>
+                      <button class="btn btn-primary"
+                        v-on:click="elegirMethodImage(dato.id_image,dato.id_principal_blog)">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="col">
+              <button v-on:click="etitulo = dato.title; econtenido = dato.body; idP=dato.id_principal_blog" class="btn btn-warning" type="button"
+                data-bs-toggle="modal" v-bind:data-bs-target="tranformar1('EditarPrincipal',dato.id_principal_blog)">Editar</button>
+              <div class="modal " tabindex="-1" v-bind:id="tranformar2('EditarPrincipal',dato.id_principal_blog)">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Editar principal del blog {{dato}}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 col-form-label">Titulo</label>
+                          <div class="col-sm-10">
+                            <input v-model="etitulo" type="text" class="form-control" placeholder="Titulo">
+                          </div>
+                        </div>
+                        <div class=" mt-1 form-group row">
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">Contenido </label>
+                          <div class="col-sm-10">
+                            <div class="form-group">
+                              <textarea class="form-control" v-model="econtenido" placeholder="Contenido" rows="3"
+                                required></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button class="btn btn-primary" v-on:click="putPrincipal(dato.id_principal_blog)">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-danger" v-on:click="deletePrincipal(dato.id_principal_blog)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        data: [],
+        titulo: '',
+        idP:'',
+        contenido: '',
+        etitulo: '',
+        econtenido: '',
+        width: '',
+        height: '',
+        url: '',
+        vacioImage: true,
+
+      },
+      mounted: function () {
+        this.getPrincipal();
+      },
+      methods: {
+        tranformar1: function(palabra,id){
+          return '#'+palabra+ +id;
+        },
+         tranformar2: function(palabra,id){
+          return palabra +id;
+        },
+        getPrincipal: function () {
+          axios.get('http://localhost/proyecto_suave_seduccion/php/principal_blog/')
+            .then(response => {
+              this.data = response.data["items"];
+            })
+        },
+        deletePrincipal: function (idPrincipal) {
+
+          const params = new URLSearchParams();
+          params.append('id_principal_blog', idPrincipal);
+          axios({
+            method: 'delete',
+            url: 'http://localhost/proyecto_suave_seduccion/php/principal_blog/',
+            data: params,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          })
+            .then(function (response) {
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+          window.location = ""
+
+        },
+        postPrincipal: function () {
+          var bodyFormData = new FormData();
+          bodyFormData.set('tittle', this.titulo);
+          bodyFormData.set('body', this.contenido);
+          axios({
+            method: 'post',
+            url: 'http://localhost/proyecto_suave_seduccion/php/principal_blog/',
+            data: bodyFormData,
+            headers: { 'Content-Type': 'multipart/form-data' }
+          })
+            .then(function (response) {
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+          this.titulo = '';
+          this.contenido = '';
+          window.location = ""
+
+        },
+        putPrincipal: function (idPrincipal) {
+          const params = new URLSearchParams();
+          params.append('id_principal_blog', idPrincipal);
+          params.append('tittle', this.etitulo);
+          params.append('body', this.econtenido);
+          axios({
+            method: 'put',
+            url: 'http://localhost/proyecto_suave_seduccion/php/principal_blog/',
+            data: params,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          })
+            .then(function (response) {
+              console.log(response)
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+          window.location = ""
+
+        },
+        getImageId: function (idImage) {
+          axios.get('http://localhost/proyecto_suave_seduccion/php/image_blog?id_image_blog=' + idImage)
+            .then(response => {
+              if (response.data["items"]) {
+                this.url = response.data["items"][0].url;
+                this.width = response.data["items"][0].width;
+                this.height = response.data["items"][0].height;
+                this.vacioImage = false;
+                console.log(response.data["items"])
+
+              } else {
+                this.vacioImage = true;
+              }
+            })
+            .catch(function (response) {
+            });
+        },
+        elegirMethodImage: function (idImage, idPrincipal) {
+          if (this.vacioImage) {
+            var bodyFormData = new FormData();
+            bodyFormData.set('url', this.url);
+            bodyFormData.set('width', this.width);
+            bodyFormData.set('height', this.height);
+            axios({
+              method: 'post',
+              url: 'http://localhost/proyecto_suave_seduccion/php/image_blog/',
+              data: bodyFormData,
+              headers: { 'Content-Type': 'multipart/form-data' }
+            })
+              .then(function (response) {
+                const params = new URLSearchParams();
+                params.append('id_image_blog', response.data["items"][0].id_image);
+                params.append('id_principal_blog', idPrincipal);
+                axios({
+                  method: 'put',
+                  url: 'http://localhost/proyecto_suave_seduccion/php/principal_blog/',
+                  data: params,
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                })
+                  .then(function (response) {
+                    console.log(response)
+                  })
+                  .catch(function (response) {
+                    console.log(response);
+                  });
+              })
+              .catch(function (response) {
+                console.log(response);
+              });
+
+          } else {
+            const params = new URLSearchParams();
+            params.append('url', this.url);
+            params.append('id_image_blog', idImage);
+            params.append('height', this.height);
+            params.append('width', this.width);
+            axios({
+              method: 'put',
+              url: 'http://localhost/proyecto_suave_seduccion/php/image_blog/',
+              data: params,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+              .then(function (response) {
+                console.log(response)
+              })
+              .catch(function (response) {
+                console.log(response);
+              });
+          }
+          // window.location = ""
+        },
+        deleteImage: function (idImage) {
+          const params = new URLSearchParams();
+          params.append('id_image_blog', idImage);
+          axios({
+            method: 'delete',
+            url: 'http://localhost/proyecto_suave_seduccion/php/image_blog/',
+            data: params,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+          window.location = ""
+
+        }
+      }
+    });
+
+
+
+
+  </script>
+
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"
+    integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

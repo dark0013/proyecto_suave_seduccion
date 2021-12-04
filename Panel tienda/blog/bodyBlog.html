@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+  <title>Body Blog</title>
+</head>
+
+<body>
+  <h1 class="text-center"> Body blog </h1>
+
+
+  <div id="app">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-8">
+
+        </div>
+        <div class="col-4">
+          <select class="form-select" aria-label="Default select example" v-model="selected"
+            @change="getPrincipalBody($event.target.value)">
+            <option v-for="contenido in principal" v-bind:value="contenido.id_principal_blog">
+              {{contenido.title}}
+            </option>
+
+          </select>
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <!-- <div class="p-2 bd-highlight">Flex item 3</div> -->
+        <button type="button" class="btn btn-success" type="button" data-bs-toggle="modal"
+          data-bs-target="#PrincipalModalA" v-bind:style="{display: activeBoton}"  >Agregar contenido</button>
+        <div class="modal " tabindex="-1" id="PrincipalModalA">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Agregar principal del blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Sub-titulo</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="subtitulo" placeholder="Sub-titulo" v-model="titulo">
+                    </div>
+                  </div>
+                  <div class=" mt-1 form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Contenido </label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Contenido"
+                        v-model="contenido" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" v-on:click="postPrincipal()">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-if="selected">
+        <div v-if="bodyprincipal.length != 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col-1">#</th>
+                <th scope="col-3">Sub-titulo</th>
+                <th scope="col-2">Contenido</th>
+                <th scope="col-2">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="col mb-4" v-for="dato in bodyprincipal">
+                <th scope="row">{{dato.id_body}}</th>
+                <td class="col-4">{{dato.subtitle}}</td>
+                <td class="col-4">{{dato.subbody}}</td>
+                <td class="col">
+                  <button class="btn btn-warning"  v-on:click="etitulo = dato.subtitle; econtenido = dato.subbody;" type="button" data-bs-toggle="modal"
+                    v-bind:data-bs-target="tranformar1('EditarBlog',dato.id_body)">Editar</button>
+                  <div class="modal " tabindex="-1" v-bind:id="tranformar2('EditarBlog',dato.id_body)">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Editar principal del blog</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="form-group row">
+                              <label for="inputEmail3" class="col-sm-2 col-form-label">Sub-titulo</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="subtitulo" placeholder="Sub-titulo"  v-model="etitulo">
+                              </div>
+                            </div>
+                            <div class=" mt-1 form-group row">
+                              <label for="inputPassword3" class="col-sm-2 col-form-label">Contenido </label>
+                              <div class="col-sm-10">
+                                <div class="form-group">
+                                  <textarea class="form-control" id="exampleFormControlTextarea1"
+                                  v-model="econtenido"  placeholder="Contenido" rows="3" required></textarea>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <button class="btn btn-primary"  v-on:click="putBody(dato.id_body)">Guardar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-danger" v-on:click="deleteBody(dato.id_body)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 v-else>No se encontraron elementos</h3>
+      </div>
+      <h3 v-else>Seleccione el blog a editar</h3>
+
+    </div>
+  </div>
+  </div>
+  <script>
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        selected: '',
+        principal: [],
+        bodyprincipal: [],
+        ultimoId: '',
+        titulo: '',
+        contenido: '',
+        etitulo:'',
+        econtenido:'',
+        activeBoton:'None',
+      },
+      created() {
+        this.getPrincipal();
+      },
+      mounted: function () {
+      },
+      methods: {
+        tranformar1: function(palabra,id){
+          return '#'+palabra+ +id;
+        },
+         tranformar2: function(palabra,id){
+          return palabra +id;
+        },
+        getPrincipal: function () {
+          axios.get('http://localhost/proyecto_suave_seduccion/php/principal_blog/')
+            .then(response => {
+              this.principal = response.data["items"];
+            })
+        },
+        getPrincipalBody: function (id) {
+          this.ultimoId = id;
+          url = "http://localhost/proyecto_suave_seduccion/php/principal_blog?id_principal_blog=" + id;
+
+          axios.get(url)
+            .then(response => {
+              console.log(response.data);
+              this.bodyprincipal = response.data["subcontenido"];
+            })
+            this.activeBoton='Block';
+          },
+        deleteBody: function (idBody) {
+          const params = new URLSearchParams();
+          params.append('id_body_blog', idBody);
+          console.log(idBody)
+          axios({
+            method: 'delete',
+            url: 'http://localhost/proyecto_suave_seduccion/php/body_blog/',
+            data: params,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+          window.location = ""
+        },
+        putBody: function(idBody){
+          const params = new URLSearchParams();
+          params.append('id_body_blog', idBody);
+          params.append('tittle', this.etitulo);
+          params.append('body', this.econtenido);
+          axios({
+            method: 'put',
+            url: 'http://localhost/proyecto_suave_seduccion/php/body_blog/',
+            data: params,
+            headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+          })
+            .then(function (response) {
+              console.log(response)
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+            window.location = ""
+        },
+        postPrincipal: function (id_principal) {
+          var bodyFormData = new FormData();
+          bodyFormData.set('id_principal_blog', this.ultimoId);
+          bodyFormData.set('tittle', this.titulo);
+          bodyFormData.set('body', this.contenido);
+          axios({
+            method: 'post',
+            url: 'http://localhost/proyecto_suave_seduccion/php/body_blog/',
+            data: bodyFormData,
+            headers:{ 'Content-Type': 'multipart/form-data' }
+          })
+            .then(function (response) {
+              console.log(response);
+
+            })
+            .catch(function (response) {
+              console.log(response);
+            });
+          this.titulo = '';
+          this.contenido = '';
+          window.location = ""
+        },
+        
+      }
+    })
+
+
+
+
+  </script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"
+    integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

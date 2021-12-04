@@ -1,16 +1,17 @@
 <?php
- include_once 'api_principal_blog.php';
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Max-Age: 1000");
-header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
-header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
+
+include_once 'api_principal_blog.php';
+
  $method = $_SERVER['REQUEST_METHOD'];
  $apii = new api(); 
   switch ($method) { 
     case 'PUT':
         parse_str(file_get_contents("php://input"),$put_vars);
-        $apii->putPrincipalBlog($put_vars['id_principal_blog'],$put_vars['tittle'],$put_vars['body']);
+        if(isset($put_vars['id_image_blog'])){
+            $apii->putPrincipalBlogImage($put_vars['id_image_blog'],$put_vars['id_principal_blog']);
+        }else{
+            $apii->putPrincipalBlog($put_vars['id_principal_blog'],$put_vars['tittle'],$put_vars['body']);
+        }
         break;
     case 'POST':
         $apii->createPrincipalBlog($_POST['tittle'],$_POST['body']);
@@ -27,6 +28,7 @@ header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
         $apii->deletePrincipalBlog($delete_vars['id_principal_blog']);
         break; 
     default: rest_error($request); break;
- } ?>
+ } 
+ ?>
 
  
