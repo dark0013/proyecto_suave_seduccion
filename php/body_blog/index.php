@@ -1,10 +1,6 @@
 <?php
 include_once 'api_body_blog.php';
- header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Max-Age: 1000");
-header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
-header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
+
 $method = $_SERVER['REQUEST_METHOD'];
  $apii = new api(); 
   switch ($method) { 
@@ -13,7 +9,8 @@ $method = $_SERVER['REQUEST_METHOD'];
         $apii->putBlog($put_vars['id_body_blog'],$put_vars['tittle'],$put_vars['body']);
         break;
     case 'POST':
-        $apii->createBlog($_POST['tittle'],$_POST['body']);
+        echo "entra";
+        $apii->createBlog($_POST['id_principal_blog'],$_POST['tittle'],$_POST['body']);
         break; 
     case 'GET':
         if(isset($_GET["id_body_blog"])){

@@ -12,8 +12,8 @@ class body_blog extends DB{
         return $query;
     }
 
-    function crearBlog($tittle,$body){
-        $query = $this->connect()->query('INSERT INTO body_blog (subtittle, subbody) values("'.$tittle.'","'.$body.'");');
+    function crearBlog($id_principal,$tittle,$body){
+        $query = $this->connect()->query('INSERT INTO body_blog (subtittle,id_principal_blog, subbody) values("'.$tittle.'","'.$id_principal.'","'.$body.'");');
         return $query;
     }
 

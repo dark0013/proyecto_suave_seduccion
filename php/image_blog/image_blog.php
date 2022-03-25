@@ -27,6 +27,10 @@ class image_blog extends DB{
         $query = $this->connect()->query('UPDATE image_blog SET url ="'.$url .'",width ="'.$width.'",height ="'.$height.'" WHERE id_image='.$id_image_blog);
         return $query;
     }
+    function ultimoPost(){
+        $query = $this->connect()->query('SELECT * FROM image_blog ORDER BY id_image DESC LIMIT 1');
+        return $query;
+    }
 } 
 
 ?>
